@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Tip calculator app</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="heading">
+      <p class="heading__title">SPLI<br />TTER</p>
+    </div>
+    <!-- end heading -->
+
+    <div class="calculator">
+      <div class="flex-left">
+        <div class="calculator__bill">
+          <div class="input-flexbox">
+            <p class="title">Bill</p>
+            <p class="title bill-invalid title-invalid hidden">Can't be zero</p>
+          </div>
+          <input
+            type="number"
+            autocomplete="off"
+            name="input-bill"
+            class="display display--bill"
+            placeholder="0"
+          />
+        </div>
+        <!-- end calculator__bill -->
+
+        <div class="calculator__select-tip">
+          <p class="title">Select Tip %</p>
+
+          <div class="select-tip__buttons">
+            <button type="button" class="btn btn__tip">5%</button>
+            <button type="button" class="btn btn__tip">10%</button>
+            <button type="button" class="btn btn__tip">15%</button>
+            <button type="button" class="btn btn__tip">20%</button>
+            <button type="button" class="btn btn__tip">25%</button>
+            <input
+              type="number"
+              autocomplete="off"
+              name="input-customtip"
+              class="display display--customtip"
+              placeholder="Custom"
+            />
+          </div>
+          <!-- end select-tip__buttons -->
+        </div>
+        <!-- end calculator__select-tip -->
+
+        <div class="calculator__people">
+          <div class="input-flexbox">
+            <p class="title">Number of People</p>
+            <p class="title title-invalid people-invalid hidden">
+              Can't be zero
+            </p>
+          </div>
+
+          <input
+            type="number"
+            ;
+            autocomplete="off"
+            name="input-people"
+            class="display display--people"
+            placeholder="0"
+          />
+        </div>
+        <!-- end  calculator__people -->
+      </div>
+      <!-- end flex-left -->
+
+      <div class="flex-right">
+        <div class="calculator__result">
+          <div class="calculator__tip-amount">
+            <p class="title__result">
+              Tip Amount<br /><span class="result__subtitle">/ person</span>
+            </p>
+            <p class="result__number tip-amount">$0.00</p>
+          </div>
+          <!-- end tip-amount -->
+
+          <div class="calculator__total-owed">
+            <p class="title__result">
+              Total<br /><span class="result__subtitle">/ person</span>
+            </p>
+            <p class="result__number total-owed">$0.00</p>
+          </div>
+          <!-- end total-owed -->
+
+          <button type="button" class="btn btn__reset">RESET</button>
+        </div>
+        <!-- end calculator__result -->
+      </div>
+      <!-- end flex-right -->
+    </div>
+    <!-- end calculator -->
+    <script src="script.js"></script>
+  </body>
+</html>
