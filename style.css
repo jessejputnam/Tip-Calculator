@@ -257,6 +257,10 @@ body {
 }
 
 @media only screen and (min-width: 900px) {
+  .container {
+    padding-top: 5vh;
+  }
+  
   .calculator {
     margin: 0 auto;
     width: 840px;
