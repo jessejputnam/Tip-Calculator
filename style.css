@@ -70,7 +70,8 @@ body {
 .heading {
   text-align: center;
   letter-spacing: .4rem;
-  padding: 5vw 0;
+  padding-top: 2vh;
+  padding-bottom: 3vh;
 }
 
 .heading__title {
@@ -259,6 +260,10 @@ body {
 @media only screen and (min-width: 900px) {
   .container {
     padding-top: 5vh;
+  }
+  
+  .heading {
+    padding-top: 10vh;
   }
   
   .calculator {
