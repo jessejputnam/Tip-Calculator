@@ -158,6 +158,11 @@ document.addEventListener("keyup", function () {
 });
 
 /////////////// #people ///////////////
+// Limit number of people AND limit number to integers
+people.addEventListener("keydown", function (e) {
+  if (people.value.length > 2 && e.key !== "Backspace") e.preventDefault();
+  if (e.key === ".") e.preventDefault();
+});
 
 // Check for invalid input (keypress)
 document.addEventListener("keyup", function () {
