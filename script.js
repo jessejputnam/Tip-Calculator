@@ -59,22 +59,22 @@ init();
 
 /////////////// #input rules ///////////////
 const invalidChars = ["-", "+", "e", "ArrowLeft"];
+const charExceptions = ["Backspace", "ArrowRight"];
 
 for (let i = 0; i < inputs.length; i++) {
   inputs[i].addEventListener("keydown", function (e) {
     // do not allow invalid chars
     if (invalidChars.includes(e.key)) e.preventDefault();
     // limit char count while allowing backspace
-    if (inputs[i].value.length > 12) {
-      if (e.key !== "Backspace") e.preventDefault();
+    if (inputs[i].value.length > 8) {
+      if (!charExceptions.includes(e.key)) e.preventDefault();
     }
 
     // limit decimal places to 2
     if (inputs[i].value.includes(".")) {
       let decimalCheck = inputs[i].value.toString().split(".");
       if (decimalCheck[1].length > 1) {
-        if (e.key === "Backspace" || e.key === "ArrowRight");
-        else e.preventDefault();
+        if (!charExceptions.includes(e.key)) e.preventDefault();
       }
     }
     // restrict multiple zeroes
@@ -160,7 +160,8 @@ document.addEventListener("keyup", function () {
 /////////////// #people ///////////////
 // Limit number of people AND limit number to integers
 people.addEventListener("keydown", function (e) {
-  if (people.value.length > 2 && e.key !== "Backspace") e.preventDefault();
+  if (people.value.length > 2 && !charExceptions.includes(e.key))
+    e.preventDefault();
   if (e.key === ".") e.preventDefault();
 });
 
