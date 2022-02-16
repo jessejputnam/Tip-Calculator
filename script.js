@@ -96,22 +96,34 @@ for (let i = 0; i < inputs.length; i++) {
     "ontouchstart",
     function (e) {
       // do not allow invalid chars
-      if (invalidChars.includes(e.key)) e.preventDefault();
+      if (invalidChars.includes(e.key)) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
       // limit char count while allowing backspace
       if (inputs[i].value.length > 8) {
-        if (!charExceptions.includes(e.key)) e.preventDefault();
+        if (!charExceptions.includes(e.key)) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
       }
 
       // limit decimal places to 2
       if (inputs[i].value.includes(".")) {
         let decimalCheck = inputs[i].value.toString().split(".");
         if (decimalCheck[1].length > 1) {
-          if (!charExceptions.includes(e.key)) e.preventDefault();
+          if (!charExceptions.includes(e.key)) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+          }
         }
       }
       // restrict multiple zeroes
       if (inputs[0].value === "0") {
-        if (e.key === "0") e.preventDefault();
+        if (e.key === "0") {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
       }
     },
     { passive: false }
