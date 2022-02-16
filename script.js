@@ -92,31 +92,39 @@ for (let i = 0; i < inputs.length; i++) {
 
 // Event listener for touchscreen
 for (let i = 0; i < inputs.length; i++) {
-  inputs[i].addEventListener("ontouchstart", function (e) {
-    // do not allow invalid chars
-    if (invalidChars.includes(e.key)) e.preventDefault();
-    // limit char count while allowing backspace
-    if (inputs[i].value.length > 8) {
-      if (!charExceptions.includes(e.key)) e.preventDefault();
-    }
-
-    // limit decimal places to 2
-    if (inputs[i].value.includes(".")) {
-      let decimalCheck = inputs[i].value.toString().split(".");
-      if (decimalCheck[1].length > 1) {
+  inputs[i].addEventListener(
+    "ontouchstart",
+    function (e) {
+      // do not allow invalid chars
+      if (invalidChars.includes(e.key)) e.preventDefault();
+      // limit char count while allowing backspace
+      if (inputs[i].value.length > 8) {
         if (!charExceptions.includes(e.key)) e.preventDefault();
       }
-    }
-    // restrict multiple zeroes
-    if (inputs[0].value === "0") {
-      if (e.key === "0") e.preventDefault();
-    }
-  });
+
+      // limit decimal places to 2
+      if (inputs[i].value.includes(".")) {
+        let decimalCheck = inputs[i].value.toString().split(".");
+        if (decimalCheck[1].length > 1) {
+          if (!charExceptions.includes(e.key)) e.preventDefault();
+        }
+      }
+      // restrict multiple zeroes
+      if (inputs[0].value === "0") {
+        if (e.key === "0") e.preventDefault();
+      }
+    },
+    { passive: false }
+  );
 
   // restrict negatives
-  document.addEventListener("ontouchend", function () {
-    if (inputs[i].value[0] === "-") inputs[i].value = "0";
-  });
+  document.addEventListener(
+    "ontouchend",
+    function () {
+      if (inputs[i].value[0] === "-") inputs[i].value = "0";
+    },
+    { passive: false }
+  );
 }
 
 /////////////// #bill ///////////////
